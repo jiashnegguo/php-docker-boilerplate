@@ -10,7 +10,7 @@ app:
     #- mail
     #- solr
     #- elasticsearch
-    #- redis
+    - redis
     #- memcached
     #- ftp
   ports:
@@ -18,7 +18,7 @@ app:
     - "8443:443"
     - "10022:22"
   volumes:
-    - ./app/:/app/
+    - ./app/server/:/app/
     - /tmp/debug/:/tmp/debug/
     - ./:/docker/
   volumes_from:
@@ -98,13 +98,13 @@ mysql:
 #######################################
 # Redis
 #######################################
-#redis:
-#  build: docker/redis/
-#  volumes_from:
-#    - storage
-#  env_file:
-#    - etc/environment.yml
-#    - etc/environment.development.yml
+redis:
+  build: docker/redis/
+  volumes_from:
+    - storage
+  env_file:
+    - etc/environment.yml
+    - etc/environment.development.yml
 
 #######################################
 # Memcached

@@ -19,6 +19,17 @@ server {
     client_max_body_size 50m;
 
     include /opt/docker/etc/nginx/vhost.common.d/*.conf;
+    rewrite ^/api/v2/(users|rongcloud)(.*)$  /zizai/route/UserRoute.php last;
+rewrite ^/api/v2/(register|login|code|auth|security|guest|bind)$  /zizai/route/AccountRoute.php last;
+rewrite ^/api/v2/(homelands|homeland|buildings)(.*)$  /zizai/route/HomelandRoute.php last;
+rewrite ^/api/v2/(closet|dress)(.*)$  /zizai/route/ClosetRoute.php last;
+rewrite ^/api/v2/tasks(.*)$  /zizai/route/TaskRoute.php last;
+rewrite ^/api/v2/policy(.*)$  /zizai/route/PolicyRoute.php last;
+rewrite ^/api/v2/contents(.*)$  /zizai/route/ContentRoute.php last;
+rewrite ^/api/v2/templates(.*)$  /zizai/route/TemplateRoute.php last;
+rewrite ^/api/v2/payments(.*)$  /zizai/route/PaymentRoute.php last;
+rewrite ^/api/v2/config(.*)$  /zizai/route/ConfigurationRoute.php last;
+rewrite i/api/v2/onlieeeeeeeeezizaiirouteiOnlineRouteiphp last;
 }
 
 ##############
